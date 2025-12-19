@@ -58,7 +58,48 @@
     <Compile Include="ucDashboard.Designer.cs">
       <DependentUpon>ucDashboard.cs</DependentUpon>
     </Compile>
-	<!-- Include all other UserControls here -->
+    <Compile Include="ucBaoCaoTaiChinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBaoCaoTaiChinh.Designer.cs">
+      <DependentUpon>ucBaoCaoTaiChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyBaiGiuXe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyBaiGiuXe.Designer.cs">
+      <DependentUpon>ucQuanLyBaiGiuXe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyDichVu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyDichVu.Designer.cs">
+      <DependentUpon>ucQuanLyDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyHoaDon.Designer.cs">
+      <DependentUpon>ucQuanLyHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyHopDong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyHopDong.Designer.cs">
+      <DependentUpon>ucQuanLyHopDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyKhachThue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyKhachThue.Designer.cs">
+      <DependentUpon>ucQuanLyKhachThue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyPhong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyPhong.Designer.cs">
+      <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
