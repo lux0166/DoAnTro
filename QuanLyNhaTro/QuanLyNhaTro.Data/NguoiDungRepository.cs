@@ -1,6 +1,7 @@
 using QuanLyNhaTro.Models;
 using System.Data.SqlClient;
 using System.Collections.Generic;
+using BCrypt.Net;
 
 namespace QuanLyNhaTro.Data
 {

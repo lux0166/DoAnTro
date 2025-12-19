@@ -56,5 +56,49 @@ namespace QuanLyNhaTro.Data
         }
 
         // Additional methods like Update, Delete, GetById can be added here.
+        public List<ContractViewModel> GetAllAsViewModel()
+        {
+            List<ContractViewModel> contracts = new List<ContractViewModel>();
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = @"
+                    SELECT
+                        hd.ID,
+                        hd.MaHopDong,
+                        p.TenPhong,
+                        kt.HoTen AS TenKhachThue,
+                        kt.SoDienThoai,
+                        hd.GiaThue,
+                        hd.TienCoc,
+                        hd.NgayBatDau,
+                        hd.NgayKetThuc,
+                        hd.TrangThai
+                    FROM HopDong hd
+                    JOIN Phong p ON hd.IDPhong = p.ID
+                    JOIN KhachThue kt ON hd.IDKhachThue = kt.ID";
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        contracts.Add(new ContractViewModel
+                        {
+                            ID = (int)reader["ID"],
+                            MaHopDong = reader["MaHopDong"].ToString(),
+                            TenPhong = reader["TenPhong"].ToString(),
+                            TenKhachThue = reader["TenKhachThue"].ToString(),
+                            SoDienThoai = reader["SoDienThoai"].ToString(),
+                            GiaThue = (decimal)reader["GiaThue"],
+                            TienCoc = (decimal)reader["TienCoc"],
+                            NgayBatDau = (DateTime)reader["NgayBatDau"],
+                            NgayKetThuc = (DateTime)reader["NgayKetThuc"],
+                            TrangThai = reader["TrangThai"].ToString()
+                        });
+                    }
+                }
+            }
+            return contracts;
+        }
     }
 }

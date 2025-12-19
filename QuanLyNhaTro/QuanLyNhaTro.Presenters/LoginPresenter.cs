@@ -1,6 +1,7 @@
 using QuanLyNhaTro.Core.Interfaces;
 using QuanLyNhaTro.Data;
 using QuanLyNhaTro.Models;
+using BCrypt.Net;
 
 namespace QuanLyNhaTro.Presenters
 {

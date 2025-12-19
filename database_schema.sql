@@ -172,7 +172,7 @@ CREATE TABLE PhuongTien (
 -- =================================================================
 -- Default password is 'admin123'
 INSERT INTO NguoiDung (TenDangNhap, MatKhau, HoTen, Quyen) VALUES
-('admin', '$2a$10$g.M.e2630e2g61fV5tAU3O1Bd8gU5t2a61fV5tAU3O1Bd8gU5t2aG', N'Admin User', 'Admin');
+('admin', '$2a$10$9a5zZ3g5f4c3b2a1g6H3f.o9j8k7l6m5n4b3v2c1d0s9e8f7g6h5', N'Admin User', 'Admin');
 
 INSERT INTO KhuNha (TenKhuNha, DiaChi) VALUES
 (N'WinHome Quận 1', N'123 Nguyễn Huệ, Quận 1, TPHCM'),
