@@ -21,6 +21,7 @@ namespace QuanLyNhaTro.Views
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnQuanLyPhong = new DevExpress.XtraBars.BarButtonItem();
             this.btnDashboard = new DevExpress.XtraBars.BarButtonItem();
+            this.btnQuanLyKhachThue = new DevExpress.XtraBars.BarButtonItem(); // New Button
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -33,11 +34,13 @@ namespace QuanLyNhaTro.Views
             //
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbon.ExpandCollapseItem,
-            this.btnQuanLyPhong,
-            this.btnDashboard});
+                this.ribbon.ExpandCollapseItem,
+                this.btnQuanLyPhong,
+                this.btnDashboard,
+                this.btnQuanLyKhachThue // Added here
+            });
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 3;
+            this.ribbon.MaxItemId = 4; // Updated MaxItemId
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -56,6 +59,12 @@ namespace QuanLyNhaTro.Views
             this.btnDashboard.Id = 2;
             this.btnDashboard.Name = "btnDashboard";
             //
+            // btnQuanLyKhachThue
+            //
+            this.btnQuanLyKhachThue.Caption = "Quản lý Khách thuê";
+            this.btnQuanLyKhachThue.Id = 3;
+            this.btnQuanLyKhachThue.Name = "btnQuanLyKhachThue";
+            //
             // ribbonPage1
             //
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -67,6 +76,7 @@ namespace QuanLyNhaTro.Views
             //
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDashboard);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnQuanLyPhong);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnQuanLyKhachThue); // Added here
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Quản lý";
             //
@@ -113,5 +123,6 @@ namespace QuanLyNhaTro.Views
         private DevExpress.XtraEditors.PanelControl mainContainer;
         private DevExpress.XtraBars.BarButtonItem btnQuanLyPhong;
         private DevExpress.XtraBars.BarButtonItem btnDashboard;
+        private DevExpress.XtraBars.BarButtonItem btnQuanLyKhachThue; // Added here
     }
 }

@@ -12,6 +12,7 @@ namespace QuanLyNhaTro.Views
             // Assign click events to ribbon buttons
             btnDashboard.ItemClick += (s, e) => ShowUserControl(new ucDashboard());
             btnQuanLyPhong.ItemClick += (s, e) => ShowUserControl(new ucQuanLyPhong());
+            btnQuanLyKhachThue.ItemClick += (s, e) => ShowUserControl(new ucQuanLyKhachThue());
 
             // Show Dashboard on startup
             this.Load += (s, e) => ShowUserControl(new ucDashboard());
