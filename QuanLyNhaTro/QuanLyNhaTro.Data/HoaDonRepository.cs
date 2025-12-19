@@ -57,5 +57,18 @@ namespace QuanLyNhaTro.Data
         }
 
         // Additional methods like Update, Delete, GetById can be added here.
+        public decimal GetMonthlyRevenue(int month, int year)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT SUM(DaThanhToan) FROM HoaDon WHERE MONTH(NgayLap) = @Month AND YEAR(NgayLap) = @Year";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Month", month);
+                command.Parameters.AddWithValue("@Year", year);
+                connection.Open();
+                object result = command.ExecuteScalar();
+                return (result == DBNull.Value) ? 0 : (decimal)result;
+            }
+        }
     }
 }

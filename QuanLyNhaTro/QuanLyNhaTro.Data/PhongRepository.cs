@@ -73,5 +73,27 @@ namespace QuanLyNhaTro.Data
         }
 
         // Additional methods like GetById, Delete can be added here.
+        public int CountAll()
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT COUNT(ID) FROM Phong";
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                return (int)command.ExecuteScalar();
+            }
+        }
+
+        public int CountByStatus(string trangThai)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT COUNT(ID) FROM Phong WHERE TrangThai = @TrangThai";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@TrangThai", trangThai);
+                connection.Open();
+                return (int)command.ExecuteScalar();
+            }
+        }
     }
 }
