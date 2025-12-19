@@ -1,0 +1,33 @@
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
+using System;
+
+namespace QuanLyNhaTro.Views
+{
+    public partial class frmMain : RibbonForm
+    {
+        public frmMain()
+        {
+            InitializeComponent();
+            // Assign click events to ribbon buttons
+            btnDashboard.ItemClick += (s, e) => ShowUserControl(new ucDashboard());
+            btnQuanLyPhong.ItemClick += (s, e) => ShowUserControl(new ucQuanLyPhong());
+            btnQuanLyKhachThue.ItemClick += (s, e) => ShowUserControl(new ucQuanLyKhachThue());
+            btnQuanLyHopDong.ItemClick += (s, e) => ShowUserControl(new ucQuanLyHopDong());
+            btnQuanLyDichVu.ItemClick += (s, e) => ShowUserControl(new ucQuanLyDichVu());
+            btnQuanLyHoaDon.ItemClick += (s, e) => ShowUserControl(new ucQuanLyHoaDon());
+            btnBaoCao.ItemClick += (s, e) => ShowUserControl(new ucBaoCaoTaiChinh());
+            btnBaiGiuXe.ItemClick += (s, e) => ShowUserControl(new ucQuanLyBaiGiuXe());
+
+            // Show Dashboard on startup
+            this.Load += (s, e) => ShowUserControl(new ucDashboard());
+        }
+
+        private void ShowUserControl(XtraUserControl control)
+        {
+            mainContainer.Controls.Clear();
+            control.Dock = System.Windows.Forms.DockStyle.Fill;
+            mainContainer.Controls.Add(control);
+        }
+    }
+}

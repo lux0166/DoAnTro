@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{FC66B2F3-50D1-4B68-A212-96155A423B7A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuanLyNhaTro.Views</RootNamespace>
+    <AssemblyName>QuanLyNhaTro.Views</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="DevExpress.Data.v24.1" />
+    <Reference Include="DevExpress.XtraBars.v24.1" />
+    <Reference Include="DevExpress.XtraEditors.v24.1" />
+    <Reference Include="DevExpress.XtraGrid.v24.1" />
+    <Reference Include="DevExpress.XtraLayout.v24.1" />
+	<Reference Include="DevExpress.Charts.v24.1.Core" />
+	<Reference Include="DevExpress.XtraCharts.v24.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDashboard.Designer.cs">
+      <DependentUpon>ucDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucBaoCaoTaiChinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBaoCaoTaiChinh.Designer.cs">
+      <DependentUpon>ucBaoCaoTaiChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyBaiGiuXe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyBaiGiuXe.Designer.cs">
+      <DependentUpon>ucQuanLyBaiGiuXe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyDichVu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyDichVu.Designer.cs">
+      <DependentUpon>ucQuanLyDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyHoaDon.Designer.cs">
+      <DependentUpon>ucQuanLyHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyHopDong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyHopDong.Designer.cs">
+      <DependentUpon>ucQuanLyHopDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyKhachThue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyKhachThue.Designer.cs">
+      <DependentUpon>ucQuanLyKhachThue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuanLyPhong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuanLyPhong.Designer.cs">
+      <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyNhaTro.Core\QuanLyNhaTro.Core.csproj">
+      <Project>{A2A9A09F-4D29-4322-9D09-329417E4C4E3}</Project>
+      <Name>QuanLyNhaTro.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuanLyNhaTro.Presenters\QuanLyNhaTro.Presenters.csproj">
+      <Project>{D5D9A09F-4D29-4322-9D09-329417E4C4E3}</Project>
+      <Name>QuanLyNhaTro.Presenters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuanLyNhaTro.Models\QuanLyNhaTro.Models.csproj">
+      <Project>{C4C9A09F-4D29-4322-9D09-329417E4C4E3}</Project>
+      <Name>QuanLyNhaTro.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
