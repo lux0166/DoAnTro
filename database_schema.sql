@@ -4,6 +4,9 @@
 -- =================================================================
 
 -- Drop existing tables in reverse order of dependency to avoid foreign key constraints issues
+IF OBJECT_ID('dbo.GiaoDich', 'U') IS NOT NULL DROP TABLE dbo.GiaoDich;
+IF OBJECT_ID('dbo.PhieuChi', 'U') IS NOT NULL DROP TABLE dbo.PhieuChi;
+IF OBJECT_ID('dbo.PhieuThu', 'U') IS NOT NULL DROP TABLE dbo.PhieuThu;
 IF OBJECT_ID('dbo.ChiTietHoaDon', 'U') IS NOT NULL DROP TABLE dbo.ChiTietHoaDon;
 IF OBJECT_ID('dbo.HoaDon', 'U') IS NOT NULL DROP TABLE dbo.HoaDon;
 IF OBJECT_ID('dbo.ChiSoDienNuoc', 'U') IS NOT NULL DROP TABLE dbo.ChiSoDienNuoc;
@@ -112,18 +115,21 @@ CREATE TABLE ChiSoDienNuoc (
 
 -- 9. HoaDon (Invoices)
 CREATE TABLE HoaDon (
-    ID INT PRIMARY KEY IDENTITY(1,1),
-    MaHoaDon AS ('INV' + RIGHT('00000' + CAST(ID AS VARCHAR(5)), 5)) PERSISTED,
-    IDHopDong INT NOT NULL,
+    MaHD INT PRIMARY KEY IDENTITY(1,1),
+    MaHopDong INT NOT NULL,
     NgayLap DATE NOT NULL,
     HanThanhToan DATE NOT NULL,
+    SoDienCu FLOAT NOT NULL,
+    SoDienMoi FLOAT NOT NULL,
+    SoNuocCu FLOAT NOT NULL,
+    SoNuocMoi FLOAT NOT NULL,
     TongTien DECIMAL(18, 2) NOT NULL,
     DaThanhToan DECIMAL(18, 2) DEFAULT 0,
-    ConNo AS (TongTien - DaThanhToan),
     TrangThai NVARCHAR(50) NOT NULL, -- e.g., 'Chưa thanh toán', 'Đã thanh toán', 'Quá hạn'
     GhiChu NVARCHAR(MAX),
-    FOREIGN KEY (IDHopDong) REFERENCES HopDong(ID)
+    FOREIGN KEY (MaHopDong) REFERENCES HopDong(MaHopDong)
 );
+
 
 -- 10. ChiTietHoaDon (Invoice Details)
 CREATE TABLE ChiTietHoaDon (
@@ -133,11 +139,49 @@ CREATE TABLE ChiTietHoaDon (
     SoLuong INT,
     DonGia DECIMAL(18, 2) NOT NULL,
     ThanhTien AS (SoLuong * DonGia),
-    FOREIGN KEY (IDHoaDon) REFERENCES HoaDon(ID),
+    FOREIGN KEY (IDHoaDon) REFERENCES HoaDon(MaHD),
     FOREIGN KEY (IDDichVu) REFERENCES DichVu(ID)
 );
 
--- 11. LoaiXe (Vehicle Types)
+-- NEW TABLES FOR FINANCIAL REPORTING
+
+-- 11. PhieuThu (Receipt Vouchers)
+CREATE TABLE PhieuThu (
+    MaPhieuThu INT PRIMARY KEY IDENTITY(1,1),
+    MaHD INT NOT NULL,
+    SoTien DECIMAL(18, 2) NOT NULL,
+    NgayThu DATE NOT NULL,
+    HinhThuc NVARCHAR(50), -- e.g., 'Tiền mặt', 'Chuyển khoản'
+    GhiChu NVARCHAR(MAX),
+    FOREIGN KEY (MaHD) REFERENCES HoaDon(MaHD)
+);
+
+-- 12. PhieuChi (Payment Vouchers)
+CREATE TABLE PhieuChi (
+    MaPhieuChi INT PRIMARY KEY IDENTITY(1,1),
+    TieuDe NVARCHAR(255) NOT NULL,
+    SoTien DECIMAL(18, 2) NOT NULL,
+    NgayChi DATE NOT NULL,
+    HangMuc NVARCHAR(100) NOT NULL, -- e.g., 'Bảo trì', 'Điện & Nước', 'Nhân sự'
+    GhiChu NVARCHAR(MAX)
+);
+
+-- 13. GiaoDich (Transactions) - For unified reporting
+CREATE TABLE GiaoDich (
+    MaGiaoDich INT PRIMARY KEY IDENTITY(1,1),
+    ThoiGian DATETIME NOT NULL,
+    LoaiGiaoDich NVARCHAR(50) NOT NULL, -- 'Doanh thu' or 'Chi phí'
+    HangMuc NVARCHAR(255) NOT NULL,
+    SoTien DECIMAL(18, 2) NOT NULL,
+    TrangThai NVARCHAR(50), -- e.g., 'Hoàn thành', 'Chờ duyệt'
+    MaPhieuThu INT NULL,
+    MaPhieuChi INT NULL,
+    FOREIGN KEY (MaPhieuThu) REFERENCES PhieuThu(MaPhieuThu),
+    FOREIGN KEY (MaPhieuChi) REFERENCES PhieuChi(MaPhieuChi)
+);
+
+
+-- 14. LoaiXe (Vehicle Types)
 CREATE TABLE LoaiXe (
     ID INT PRIMARY KEY IDENTITY(1,1),
     TenLoaiXe NVARCHAR(100) NOT NULL, -- e.g., 'Xe máy', 'Ô tô'

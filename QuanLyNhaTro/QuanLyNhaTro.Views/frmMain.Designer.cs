@@ -22,7 +22,11 @@ namespace QuanLyNhaTro.Views
             this.btnQuanLyPhong = new DevExpress.XtraBars.BarButtonItem();
             this.btnDashboard = new DevExpress.XtraBars.BarButtonItem();
             this.btnQuanLyKhachThue = new DevExpress.XtraBars.BarButtonItem();
-            this.btnQuanLyHopDong = new DevExpress.XtraBars.BarButtonItem(); // New Button
+            this.btnQuanLyHopDong = new DevExpress.XtraBars.BarButtonItem();
+            this.btnQuanLyDichVu = new DevExpress.XtraBars.BarButtonItem(); // New Button
+            this.btnQuanLyHoaDon = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBaoCao = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBaiGiuXe = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -39,10 +43,14 @@ namespace QuanLyNhaTro.Views
                 this.btnQuanLyPhong,
                 this.btnDashboard,
                 this.btnQuanLyKhachThue,
-                this.btnQuanLyHopDong // Added here
+                this.btnQuanLyHopDong,
+                this.btnQuanLyDichVu,
+                this.btnQuanLyHoaDon,
+                this.btnBaoCao,
+                this.btnBaiGiuXe
             });
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 5; // Updated MaxItemId
+            this.ribbon.MaxItemId = 9;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -73,6 +81,30 @@ namespace QuanLyNhaTro.Views
             this.btnQuanLyHopDong.Id = 4;
             this.btnQuanLyHopDong.Name = "btnQuanLyHopDong";
             //
+            // btnQuanLyDichVu
+            //
+            this.btnQuanLyDichVu.Caption = "Quản lý Dịch vụ";
+            this.btnQuanLyDichVu.Id = 5;
+            this.btnQuanLyDichVu.Name = "btnQuanLyDichVu";
+            //
+            // btnQuanLyHoaDon
+            //
+            this.btnQuanLyHoaDon.Caption = "Quản lý Hóa đơn";
+            this.btnQuanLyHoaDon.Id = 6;
+            this.btnQuanLyHoaDon.Name = "btnQuanLyHoaDon";
+            //
+            // btnBaoCao
+            //
+            this.btnBaoCao.Caption = "Báo cáo";
+            this.btnBaoCao.Id = 7;
+            this.btnBaoCao.Name = "btnBaoCao";
+            //
+            // btnBaiGiuXe
+            //
+            this.btnBaiGiuXe.Caption = "Bãi giữ xe";
+            this.btnBaiGiuXe.Id = 8;
+            this.btnBaiGiuXe.Name = "btnBaiGiuXe";
+            //
             // ribbonPage1
             //
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -85,7 +117,11 @@ namespace QuanLyNhaTro.Views
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDashboard);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnQuanLyPhong);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnQuanLyKhachThue);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnQuanLyHopDong); // Added here
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnQuanLyHopDong);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnQuanLyDichVu);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnQuanLyHoaDon);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnBaiGiuXe);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnBaoCao);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Quản lý";
             //
@@ -133,6 +169,10 @@ namespace QuanLyNhaTro.Views
         private DevExpress.XtraBars.BarButtonItem btnQuanLyPhong;
         private DevExpress.XtraBars.BarButtonItem btnDashboard;
         private DevExpress.XtraBars.BarButtonItem btnQuanLyKhachThue;
-        private DevExpress.XtraBars.BarButtonItem btnQuanLyHopDong; // Added here
+        private DevExpress.XtraBars.BarButtonItem btnQuanLyHopDong;
+        private DevExpress.XtraBars.BarButtonItem btnQuanLyDichVu;
+        private DevExpress.XtraBars.BarButtonItem btnQuanLyHoaDon;
+        private DevExpress.XtraBars.BarButtonItem btnBaoCao;
+        private DevExpress.XtraBars.BarButtonItem btnBaiGiuXe;
     }
 }

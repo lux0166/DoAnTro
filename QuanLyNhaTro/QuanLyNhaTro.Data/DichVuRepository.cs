@@ -50,5 +50,21 @@ namespace QuanLyNhaTro.Data
         }
 
         // Additional methods like Update, Delete, GetById can be added here.
+        public void Update(DichVu dichVu)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "UPDATE DichVu SET TenDichVu = @TenDichVu, DonGia = @DonGia, DonViTinh = @DonViTinh, LoaiTinhPhi = @LoaiTinhPhi, TrangThai = @TrangThai WHERE ID = @ID";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@ID", dichVu.ID);
+                command.Parameters.AddWithValue("@TenDichVu", dichVu.TenDichVu);
+                command.Parameters.AddWithValue("@DonGia", dichVu.DonGia);
+                command.Parameters.AddWithValue("@DonViTinh", dichVu.DonViTinh);
+                command.Parameters.AddWithValue("@LoaiTinhPhi", dichVu.LoaiTinhPhi);
+                command.Parameters.AddWithValue("@TrangThai", dichVu.TrangThai);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

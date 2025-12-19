@@ -14,6 +14,10 @@ namespace QuanLyNhaTro.Views
             btnQuanLyPhong.ItemClick += (s, e) => ShowUserControl(new ucQuanLyPhong());
             btnQuanLyKhachThue.ItemClick += (s, e) => ShowUserControl(new ucQuanLyKhachThue());
             btnQuanLyHopDong.ItemClick += (s, e) => ShowUserControl(new ucQuanLyHopDong());
+            btnQuanLyDichVu.ItemClick += (s, e) => ShowUserControl(new ucQuanLyDichVu());
+            btnQuanLyHoaDon.ItemClick += (s, e) => ShowUserControl(new ucQuanLyHoaDon());
+            btnBaoCao.ItemClick += (s, e) => ShowUserControl(new ucBaoCaoTaiChinh());
+            btnBaiGiuXe.ItemClick += (s, e) => ShowUserControl(new ucQuanLyBaiGiuXe());
 
             // Show Dashboard on startup
             this.Load += (s, e) => ShowUserControl(new ucDashboard());
