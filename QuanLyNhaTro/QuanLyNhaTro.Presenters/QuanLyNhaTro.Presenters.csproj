@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{D5D9A09F-4D29-4322-9D09-329417E4C4E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>QuanLyNhaTro.Presenters</RootNamespace>
+    <AssemblyName>QuanLyNhaTro.Presenters</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LoginPresenter.cs" />
+    <Compile Include="MainPresenter.cs" />
+    <Compile Include="QuanLyDichVuPresenter.cs" />
+    <Compile Include="QuanLyHopDongPresenter.cs" />
+    <Compile Include="QuanLyKhachThuePresenter.cs" />
+    <Compile Include="QuanLyPhongPresenter.cs" />
+	<Compile Include="QuanLyHoaDonPresenter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyNhaTro.Core\QuanLyNhaTro.Core.csproj">
+      <Project>{GUID_CORE}</Project>
+      <Name>QuanLyNhaTro.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuanLyNhaTro.Data\QuanLyNhaTro.Data.csproj">
+      <Project>{GUID_DATA}</Project>
+      <Name>QuanLyNhaTro.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuanLyNhaTro.Models\QuanLyNhaTro.Models.csproj">
+      <Project>{GUID_MODELS}</Project>
+      <Name>QuanLyNhaTro.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
