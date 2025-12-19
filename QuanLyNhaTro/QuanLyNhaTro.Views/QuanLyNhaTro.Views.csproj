@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{FC66B2F3-50D1-4B68-A212-96155A423B7A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuanLyNhaTro.Views</RootNamespace>
+    <AssemblyName>QuanLyNhaTro.Views</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="DevExpress.Data.v24.1" />
+    <Reference Include="DevExpress.XtraBars.v24.1" />
+    <Reference Include="DevExpress.XtraEditors.v24.1" />
+    <Reference Include="DevExpress.XtraGrid.v24.1" />
+    <Reference Include="DevExpress.XtraLayout.v24.1" />
+	<Reference Include="DevExpress.Charts.v24.1.Core" />
+	<Reference Include="DevExpress.XtraCharts.v24.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDashboard.Designer.cs">
+      <DependentUpon>ucDashboard.cs</DependentUpon>
+    </Compile>
+	<!-- Include all other UserControls here -->
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyNhaTro.Core\QuanLyNhaTro.Core.csproj">
+      <Project>{A2A9A09F-4D29-4322-9D09-329417E4C4E3}</Project>
+      <Name>QuanLyNhaTro.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuanLyNhaTro.Presenters\QuanLyNhaTro.Presenters.csproj">
+      <Project>{D5D9A09F-4D29-4322-9D09-329417E4C4E3}</Project>
+      <Name>QuanLyNhaTro.Presenters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuanLyNhaTro.Models\QuanLyNhaTro.Models.csproj">
+      <Project>{C4C9A09F-4D29-4322-9D09-329417E4C4E3}</Project>
+      <Name>QuanLyNhaTro.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

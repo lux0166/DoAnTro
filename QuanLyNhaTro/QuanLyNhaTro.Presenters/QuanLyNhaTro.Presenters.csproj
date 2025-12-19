@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{D5D9A09F-4D29-4322-9D09-329417E4C4E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>QuanLyNhaTro.Presenters</RootNamespace>
+    <AssemblyName>QuanLyNhaTro.Presenters</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContractPresenter.cs" />
+    <Compile Include="DashboardPresenter.cs" />
+    <Compile Include="LoginPresenter.cs" />
+    <Compile Include="QuanLyHoaDonPresenter.cs" />
+    <Compile Include="RoomPresenter.cs" />
+    <Compile Include="ServicePresenter.cs" />
+    <Compile Include="TenantPresenter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyNhaTro.Core\QuanLyNhaTro.Core.csproj">
+      <Project>{A2A9A09F-4D29-4322-9D09-329417E4C4E3}</Project>
+      <Name>QuanLyNhaTro.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuanLyNhaTro.Data\QuanLyNhaTro.Data.csproj">
+      <Project>{B3B9A09F-4D29-4322-9D09-329417E4C4E3}</Project>
+      <Name>QuanLyNhaTro.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuanLyNhaTro.Models\QuanLyNhaTro.Models.csproj">
+      <Project>{C4C9A09F-4D29-4322-9D09-329417E4C4E3}</Project>
+      <Name>QuanLyNhaTro.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
